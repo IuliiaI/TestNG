@@ -1,4 +1,4 @@
-package class02;
+package review01;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
@@ -12,18 +12,18 @@ import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
-public class HardAssertions {
+public class HardAssertion {
     WebDriver driver;
     @BeforeMethod(alwaysRun = true)
     public void launchTheWebsite(){
         WebDriverManager.chromedriver().setup();
         driver=new ChromeDriver();
         driver.get("http://hrm.syntaxtechs.net/humanresources/symfony/web/index.php/auth/login");
-                driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         driver.manage().window().maximize();
     }
     //label our test to group
-    @Test(groups="regression")
+    @Test()
     public void invalidCredentials(){
         //username
         WebElement userName = driver.findElement(By.xpath("//input[@name='txtUsername']"));
